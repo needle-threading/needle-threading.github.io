@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Needle Threading">
+  <meta name="keywords" content="Needle Threading">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Needle Threading</title>
+
+  <link rel="icon" href="./static/images/needle_logo.png">
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/leaderboard.css">
+
+  <script type="text/javascript" src="static/js/sort-table.js" defer></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/explorer-index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          Other Projects
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://satinbenchmark.github.io/">
+            <b>SATIN</b>
+          </a>
+          <a class="navbar-item" href="https://arxiv.org/abs/2306.00020">
+            <b>GPT4GEO</b>
+          </a>
+          <a class="navbar-item" href="https://arxiv.org/abs/2311.14656">
+            <b>Charting New Territories</b>
+          </a>
+          <a class="navbar-item" href="https://arxiv.org/abs/2405.08807">
+            <b>SciFIBench</b>
+          </a>
+          <a class="navbar-item" href="https://grab-benchmark.github.io/">
+            <b>GRAB</b>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title is-bold">
+              <span class="needles">Needle Threading</span>
+            </h1>
+          <h2 class="subtitle is-4 publication-subtitle">Can LLMs Follow Threads Through Near-Million-Scale Haystacks?
+          </h2>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://jonathanroberts42.github.io">Jonathan Roberts</a><sup style="color:#e4d529db">1</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.kaihan.org/">Kai Han</a><sup style="color:#3fb0b0">2</sup>,</span>
+            <span class="author-block">
+              <a href="https://samuelalbanie.com/">Samuel Albanie</a><sup style=></sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup style="color:#e4d529db">1</sup>University of Cambridge,</span>
+            <span class="author-block"><sup style="color:#3fb0b0">2</sup>The University of Hong Kong</span>
+          </div>
+
+          <!--<div class="is-size-5 publication-authors">
+            <span class="author-block">(Under review)</span></div>-->
+        
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- arXiv -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/jonathan-roberts1/needle-threading"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/jonathan-roberts1/needle-threading"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <!-- <i class="far fa-images"></i> -->
+                      <p style="font-size:18px">🤗</p>
+                      <!-- 🔗 -->
+                  </span>
+                  <span>Dataset</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="margin-top: -150px; margin-bottom: -100px; width: 60%">
+    <div class="columns is-justified m-6">
+      <div class="column is-full has-text-justified content">
+
+          <div class="content has-text-justified">
+            <img src="static/images/context_length_comparison_llama_essay.png" alt="overall scores" width="100%"/>
+            <p> <b>Contextualising LLM context limits</b> (books sources from <a href="https://www.gutenberg.org/">Project Gutenberg</a>). Frontier long-context LLMs have context limits that can contain multiple books simultaneously.</p>
+        </div>
+      </div>
+    </div>
+</section>
+
+
+<section class="section">
+  <div class="container">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Overview</h2>
+        <div class="content has-text-justified">
+        </div>
+      </div>
+</div>
+</section>
+
+</section>
+<div class="columns is-justified has-text-justified">
+  <!-- <div class="column is-full-width has-text-centered"> -->
+    <div class="justified" style="width: 60%; margin: 0 auto;">
+      <p></p><p></p><p></p>
+      <!--add small vertical blank space-->
+      <p style="margin-bottom:-0.5cm;"></p>
+      <p>
+        As the context limits of Large Language Models (LLMs) increase, the range of
+possible applications and downstream functions broadens. Although the development of longer context models has seen rapid gains recently, our understanding of how effectively they use their context has not kept pace. To address
+this, we conduct a set of retrieval experiments designed to evaluate the capabilities
+of 17 leading LLMs, such as their ability to follow threads of information through
+the context window. Strikingly, we find that many models are remarkably thread-safe: capable of simultaneously following multiple threads without significant loss
+in performance. Still, for many models, we find the effective context limit is significantly shorter than the supported context length, with accuracy decreasing as
+the context window grows.</p>
+        </div>
+        </div>
+    </section>
+
+
+
+<section class="hero is-light is-small">
+  <div class="container" style="margin-top: -10px; margin-bottom: -10px">
+  <div class="hero-body has-text-centered">
+  <h1 class="title is-1 needles" id="leaderboard">
+    <span class="needles" style="vertical-align: middle">Needle Retrieval Tasks</span>
+  </h1>
+  </div>
+  </div>
+</section>
+
+</section>
+    <div class="columns is-justified has-text-justified">
+      <!-- <div class="column is-full-width has-text-centered"> -->
+        <div class="justified" style="width: 60%; margin: 0 auto;">
+          <p></p><p></p><p></p>
+          <!--add small vertical blank space-->
+          <p style="margin-bottom:0.75cm;"></p>
+          <p>Our evaluation consists of the following 6 retrieval-based long-context experiments ranging from simple single needle retrieval to challenging multi-thread retrieval. We carry out our experiments in an abstract UUID key-value setting at context lengths ranging from 1.2k to 630k tokens.</p>
+          <p style="margin-bottom:0.75cm;"></p>
+                <img src="static/images/schematic.png" alt="category performance" width="120%"/>
+                <p></p>
+            </div>
+            </div>
+        </section>
+
+
+        <section class="hero is-light is-small">
+          <div class="container" style="margin-top: -10px; margin-bottom: -10px">
+          <div class="hero-body has-text-centered">
+          <h1 class="title is-1 needles" id="leaderboard">
+            <span class="needles" style="vertical-align: middle">Experiments</span>
+          </h1>
+          </div>
+          </div>
+        </section>
+        
+        </section>
+            <div class="columns is-justified has-text-justified">
+              <!-- <div class="column is-full-width has-text-centered"> -->
+                <div class="justified" style="width: 65%; margin: 0 auto;">
+                  <p></p><p></p><p></p>
+                  <!--add small vertical blank space-->
+                  <p style="margin-bottom:0.5cm;"></p>
+                  <div id="results-carousel" class="carousel results-carousel">
+                    <div class="box m-5">
+                      <div class="content has-text-justified">
+                        <img src="static/images/single_needles_heatmaps.png" alt="GRAB examples" width="100%"/>
+                        <p><b>Single Needles</b> - for most models, retrieval precision decreases towards the middle of the context window.</p>
+                      </div>
+                    </div>
+                      <div class="box m-5">
+                        <div class="content has-text-justified">
+                          <img src="static/images/multiple_needles_heatmaps.png" alt="GRAB examples" width="100%"/>
+                          <p><b>Multiple Needles</b> - context length has a substantially greater effect on performance than needle placement or number.</p>
+                        </div>
+                        </div>
+                        <div class="box m-5">
+                          <div class="content has-text-justified">
+                            <img src="static/images/Conditional_Needles_selected_heatmaps.png" alt="GRAB examples" width="100%"/>
+                            <p><b>Conditional Needles</b> - needles prove easier to retrieve when clustered.</p>
+                          </div>
+                        </div>
+                          <div class="box m-5">
+                            <div class="content has-text-justified">
+                              <img src="static/images/needle_threads_heatmaps.png" alt="GRAB examples" width="100%"/>
+                              <p><b>Threading</b> - for most models, forward-travelling needles are easier to follow.</p>
+                            </div>
+                            </div>
+                            <div class="box m-5">
+                              <div class="content has-text-justified">
+                                <img src="static/images/multi_threads_heatmaps.png" alt="GRAB examples" width="100%"/>
+                                <p><b>Multi-Threading</b> - concurrently following <i>N</i> threads does not significantly degrade performance.</p>
+                              </div>
+                              </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+                
+              </section>
+              <div class="columns is-centered has-text-centered">
+                <!-- <div class="column is-full-width has-text-centered"> -->
+                  <div class="justified" style="width: 65%; margin: 0 auto;">
+                    <p></p><p></p><p></p>
+                    <!--add small vertical blank space-->
+                    <p style="margin-bottom:0.5cm;"></p>
+                    <div id="results-carousel" class="carousel results-carousel">
+                      <div class="box m-5">
+                        <div class="content has-text-centered">
+                          <img src="static/images/single_needle_lines.png" alt="GRAB examples" width="65%"/> <img src="static/images/legend.png" alt="GRAB examples" width="20%"/>
+                          <p><b>Single Needles</b></p>
+                        </div>
+                      </div>
+                        <div class="box m-5">
+                          <div class="content has-text-centered">
+                            <img src="static/images/multiple_needles_lines.png" alt="GRAB examples" width="50%"/> <img src="static/images/legend.png" alt="GRAB examples" width="20%"/>
+                            <p><b>Multiple Needles</b></p>
+                          </div>
+                          </div>
+                          <div class="box m-5">
+                            <div class="content has-text-centered">
+                              <img src="static/images/conditional_needles_lines.png" alt="GRAB examples" width="50%"/> <img src="static/images/legend.png" alt="GRAB examples" width="20%"/>
+                              <p><b>Conditional Needles</b></p>
+                            </div>
+                          </div>
+                            <div class="box m-5">
+                              <div class="content has-text-centered">
+                                <img src="static/images/threading_lines.png" alt="GRAB examples" width="100%"/>
+                                <p><b>Threading</b></p>
+                              </div>
+                              </div>
+                              <div class="box m-5">
+                                <div class="content has-text-centered">
+                                  <img src="static/images/multiple_threads_lines.png" alt="GRAB examples" width="100%"/>
+                                  <p><b>Multi-Threading</b></p>
+                                </div>
+                                </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+</section>
+                  <div class="columns is-justified has-text-justified">
+                    <!-- <div class="column is-full-width has-text-centered"> -->
+                      <div class="justified" style="width: 65%; margin: 0 auto;">
+                        <p></p><p></p><p></p>
+                        <p style="margin-bottom:0.5cm;"></p>
+                        <p style="margin-bottom:0.5cm;"></p>
+                              <img src="static/images/thread_safe.png" alt="category performance" width="100%"/>
+                              <p><b><b>Frontier LLMs are thread-safe.</b> Each point represents an average over 10 repeats
+                                retrieving randomly directed threads with a length of 3 in a 20k token haystack.</p>
+                          </div>
+                          </div>
+</section>
+
+</section>
+<div class="columns is-centered has-text-centered">
+  <!-- <div class="column is-full-width has-text-centered"> -->
+    <div class="justified" style="width: 65%; margin: 0 auto;">
+      <p></p><p></p><p></p>
+      <p style="margin-bottom:0.5cm;"></p>
+      <p style="margin-bottom:0.5cm;"></p>
+            <img src="static/images/table.png" alt="category performance" width="100%"/>
+            <p><b>Aggregated results across 5 tasks.</b> The highest scoring model at each context length is highlighted.</p>
+        </div>
+        </div>
+</section>
+
+
+
+
+<section class="hero is-light is-small">
+  <div class="container" style="margin-top: -10px; margin-bottom: -10px">
+  <div class="hero-body has-text-centered">
+  <h1 class="title is-1 needles" id="leaderboard">
+    <span class="needles" style="vertical-align: middle">Effective Context Limits</span>
+  </h1>
+  </div>
+  </div>
+</section>
+</section>
+    <div class="columns is-centered has-text-centered">
+      <!-- <div class="column is-full-width has-text-centered"> -->
+        <div class="justified" style="width: 80%; margin: 0 auto;">
+          <p></p><p></p><p></p>
+          <p style="margin-bottom:0.5cm;"></p>
+          <p>We use contours at selected thresholds to visualise a task-specific effective context length for each model. 
+            <p style="margin-bottom:0.5cm;"></p>
+            </p>
+                <img src="static/images/single_needle_contours.png" alt="category performance" width="35%"/>
+                  <img src="static/images/multi_needle_contour.png" alt="category performance" width="35%"/>
+                  <p><b>Effective context lengths</b> for the Single Needle (<i>left</i>) and Multiple Needles (<i>right</i>) tasks.</p>
+            </div>
+            </div>
+        </section>
+
+<!-- bibtex
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title is-3 has-text-centered">BibTeX</h2>
+    <pre><code>@article{roberts2024grab,
+      title        = {GRAB: A Challenging GRaph Analysis Benchmark for Large Multimodal Models},
+      author       = {Jonathan Roberts, Kai Han and Samuel Albanie},
+      year         = {2024},
+      journal      = {arXiv preprint arXiv:2408.11817}
+    }</code></pre>
+  </div>
+</section>
+ -->
+
+<section>
+  <div class="section" id="org-banners" style="display:flex">
+    <a href="https://www.cam.ac.uk/" target="_blank" rel="external">
+        <img class="center-block org-banner" src="static/images/cam_logo.svg">
+    </a>
+    <a href="https://www.hku.hk/" target="blank" class="ext-link">
+        <img class="center-block org-banner" src="static/images/hku_logo.png">
+    </a>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <!-- <div class="container"> -->
+    <div class="content has-text-centered">
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is adapted from <a href="https://nerfies.github.io/">Nerfies</a> and <a href="https://mathvista.github.io/">Math Vista</a>, licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  <!-- </div> -->
+</footer>
+
+</body>
+</html>
